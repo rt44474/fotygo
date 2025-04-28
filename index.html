@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TRANsporty</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #003366; color: white; padding: 20px; text-align: center; }
+    nav a { margin: 0 10px; color: white; text-decoration: none; }
+    section { padding: 40px; }
+    footer { background-color: #222; color: white; text-align: center; padding: 20px; }
+    form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; }
+    input, textarea { margin-bottom: 10px; padding: 10px; font-size: 16px; }
+    button { padding: 10px; background-color: #003366; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #0055aa; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TRANsporty</h1>
+  <nav>
+    <a href="#about">O nas</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>O nas</h2>
+  <p>TRANsporty to firma specjalizująca się w krajowym i międzynarodowym transporcie towarów. Zapewniamy szybkie, bezpieczne i terminowe dostawy.</p>
+</section>
+
+<section id="contact">
+  <h2>Kontakt</h2>
+  <p>Telefon: <a href="tel:+48123456789">+48 123 456 789</a></p>
+  <p>Email: <a href="mailto:kontakt@transporty.pl">kontakt@transporty.pl</a></p>
+
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Twoje imię" required>
+    <input type="email" name="email" placeholder="Twój email" required>
+    <textarea name="message" placeholder="Twoja wiadomość" rows="5" required></textarea>
+    <button type="submit">Wyślij</button>
+  </form>
+</section>
+
+<footer>
+  <p>Znajdź nas na <a href="https://facebook.com/twojprofil" target="_blank" style="color: #00aced;">Facebooku</a></p>
+  <p>Telefon: +48 123 456 789 | Email: kontakt@transporty.pl</p>
+</footer>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("8OK8I4vLMfwyqKm35"); // <-- wklej tu swój Public Key
+  })();
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    emailjs.sendForm('service_nq8tcla', 'template_1fxt91j', this)
+      .then(function() {
+        alert('Wiadomość wysłana! Dziękujemy za kontakt.');
+        document.getElementById('contact-form').reset();
+      }, function(error) {
+        alert('Błąd: ' + JSON.stringify(error));
+      });
+  });
+</script>
+
+</body>
+</html>
