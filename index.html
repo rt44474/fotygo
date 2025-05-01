@@ -4,17 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TRANsporty</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background-color: #003366; color: white; padding: 20px; text-align: center; }
-    nav a { margin: 0 10px; color: white; text-decoration: none; }
-    section { padding: 40px; }
-    footer { background-color: #222; color: white; text-align: center; padding: 20px; }
-    form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; }
-    input, textarea { margin-bottom: 10px; padding: 10px; font-size: 16px; }
-    button { padding: 10px; background-color: #003366; color: white; border: none; cursor: pointer; }
-    button:hover { background-color: #0055aa; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -22,13 +12,22 @@
   <h1>TRANsporty</h1>
   <nav>
     <a href="#about">O nas</a>
+    <a href="#offer">Oferta</a>
     <a href="#contact">Kontakt</a>
   </nav>
 </header>
-
+<div id="language-switcher">
+  <img src="img/flags/pl.png" alt="Polski" data-lang="pl">
+  <img src="img/flags/en.png" alt="English" data-lang="en">
+  <img src="img/flags/nl.png" alt="Nederlands" data-lang="nl">
+</div>
 <section id="about">
-  <h2>O nas</h2>
-  <p>TRANsporty to firma specjalizująca się w krajowym i międzynarodowym transporcie towarów. Zapewniamy szybkie, bezpieczne i terminowe dostawy.</p>
+  <h2 id="about-title">O nas</h2>
+  <p id="about-text">TRANsporty to firma specjalizująca się w krajowym i międzynarodowym transporcie towarów. Zapewniamy szybkie, bezpieczne i terminowe dostawy.</p>
+</section>
+
+<section id="offer">
+  <h2>Oferta</h2>
 </section>
 
 <section id="contact">
@@ -47,29 +46,12 @@
 </section>
 
 <footer>
-  <p>Znajdź nas na <a href="https://facebook.com/twojprofil" target="_blank" style="color: #00aced;">Facebooku</a></p>
+  <p>Znajdź nas na <a href="https://www.facebook.com/share/1DfwzjobYv/" target="_blank" style="color: #00aced;">Facebooku</a></p>
   <p>Telefon: +48 123 456 789 | Email: kontakt@transporty.pl</p>
 </footer>
 
-<!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("8OK8I4vLMfwyqKm35"); // <-- wklej tu swój Public Key
-  })();
-
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    emailjs.sendForm('service_qidn36v', 'template_gn2yoeg', this)
-      .then(function() {
-        alert('Wiadomość wysłana! Dziękujemy za kontakt.');
-        document.getElementById('contact-form').reset();
-      }, function(error) {
-        alert('Błąd: ' + JSON.stringify(error));
-      });
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

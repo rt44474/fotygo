@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed; /* Zmieniamy pozycję na fixed, by header był zawsze na górze */
+    top: 0; /* Ustawiamy nagłówek na samej górze */
+    left: 0;
+    width: 100%; /* Nagłówek zajmuje całą szerokość ekranu */
+    z-index: 1000; /* Zapewniamy, że nagłówek będzie nad innymi elementami */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dodajemy delikatny cień dla lepszego efektu */
+  }
+  
+  nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  section {
+    height: 100vh; /* 100% wysokości widocznego ekranu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  section.active {
+    background-color: #f0f0f0; /* Tło dla aktywnej sekcji */
+    transition: background-color 0.3s ease; /* Płynna zmiana tła */
+  }
+
+  footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0055aa;
+  }
+
+  #language-switcher {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  #language-switcher img {
+    width: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  #language-switcher img:hover {
+    transform: scale(1.1);
+  }
+
+  #language-switcher img.active {
+    border: 2px solid #0055aa;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 85, 170, 0.5);
+  }
+  
+  
